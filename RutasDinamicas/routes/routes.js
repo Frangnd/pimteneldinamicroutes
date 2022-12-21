@@ -1,11 +1,11 @@
  const product = require("../controllers/productController.js");
 
  const productHandler = {
-    GET: function(req, res, id) {if(id != null){product.getProduct(req,res,id)} else {product.getProducts(req, res)}},
-    POST: function(req, res) {product.createProduct(req, res)},
-    PUT: function(req, res, id) {product.updateProduct(req, res, id)},
-    DEL: function(req, res, id) {product.deleteProduct(req,res,id)}
- }
+  GET: function(req, res, id) {if(id != null){product.getProduct(req,res,id)} else {product.getProducts(req, res)}},
+  POST: function(req, res) {product.createProduct(req, res)},
+  PUT: function(req, res, id) {product.updateProduct(req, res, id)},
+  DEL: function(req, res, id) {product.deleteProduct(req,res,id)}
+}
 
 function Router (){
     const Routes = {
@@ -51,26 +51,35 @@ function Router (){
           return route;
       }
     }
-    
 }
 
 
 const router = Router();
 
+const routeMananger = () => {
+const add = (url, method, callback) => {
+  router()[req.method](url, callback)
+}
+const del = (url, method)=>{
+
+}
+return {
+  'add' : add,
+  'del' : del
+}
+}
+
+
+/*
 const routeDispatcher = (req, res, apiRouteName, apiID) => {
 
   //apiID es para saber si la consulta tiene algun parametro en el tercer slash. ej. /api/product/1. el apiID es 1 
   //apiRouteName es el nombre de la ruta y que se almacena al momento de ejecutar dicha consulta de API ej. /api/product se guarda "product"
-  if(req.method === 'GET' && apiID == null){
-      router.get(`/api/${apiRouteName}`, (req,res) => {productHandler.GET(req, res, apiID)})
+  if(req.method === 'GET'){
+      
   }
-  if(req.method === 'GET' && apiID != null){
-      router.get(`/api/${apiRouteName}/${apiID}`, (req,res) => {productHandler.GET(req, res, apiID)})
-  }
-
-  // ....
 }
-
+*/
 const routeList = (method) => {
   switch(method){
      default : console.log(router.Routes); break;

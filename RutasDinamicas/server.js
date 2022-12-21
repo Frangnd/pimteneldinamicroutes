@@ -24,9 +24,9 @@ const server = http.createServer((req, res) => {
           headers: req.headers, //datos de la conexion: host, datos del sistema etc.
           method: req.method.toLowerCase() //metodo GET, POST, PUT etc. en minuscula 
       }
-      //console.log(URIDATA) //si lo necesitas ver en consola aca está
+      //console.log(URIDATA) 
       URIDATA.path = URIDATA.parsedURL.pathname; //se saca el pathname de parsedURL ej. path: /api/products 
-      URIDATA.qs = URIDATA.parsedURL.query; //se saca el query de tenerlo en parsedURL (no se usa en este caso)
+      URIDATA.qs = URIDATA.parsedURL.query; //se saca el query de tenerlo en parsedURL 
 
       
       req.on("data", buffer => { 
@@ -42,7 +42,7 @@ const server = http.createServer((req, res) => {
           : (req, res) => { console.warn('⚠ |ERROR 404 -' + req.url )}; //SI NO ES DISTINTO DE UNDEFINED, entonces tira error 404.
      
     
-          route(req, res) //lo de arriba
+          route(req, res) 
           routes.routeList() //se listan las rutas agregadas.
       });
               
