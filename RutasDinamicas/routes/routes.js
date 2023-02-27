@@ -68,14 +68,14 @@ return {
 }
 }
 
-/*
+
 const routeDispatcher = (req, res, apiRouteName, apiID) => {
 for each route{
   if (route == router.service)}
   response = route.handler();
   }
 }
-*/
+
 
 const routeList = (method) => {
   switch(method){
