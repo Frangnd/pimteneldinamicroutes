@@ -28,7 +28,6 @@ const server = http.createServer((req, res) => {
       URIDATA.path = URIDATA.parsedURL.pathname; //se saca el pathname de parsedURL ej. path: /api/products 
       URIDATA.qs = URIDATA.parsedURL.query; //se saca el query de tenerlo en parsedURL 
 
-      
       req.on("data", buffer => { 
           const strJSON = buffer.toString('utf-8')
           req.body = strJSON
@@ -36,21 +35,15 @@ const server = http.createServer((req, res) => {
       }); //esto para guardar datos que se vayan a usar en metodo POST
 
       req.on("end", _ => {
-        const route =
+        const route =   
           typeof router.searchRoute(URIDATA.path, req.method) !== "undefined" //un if ternario. Si el tipo que resulta de buscar la ruta con el path y el metodo es distinto de undefined
           ? router.searchRoute(URIDATA.path, req.method)  //SI ES DISTINTO DE UNDEFINED, entonces buscalo.
           : (req, res) => { console.warn('⚠ |ERROR 404 -' + req.url )}; //SI NO ES DISTINTO DE UNDEFINED, entonces tira error 404.
-     
-    
           route(req, res) 
           routes.routeList() //se listan las rutas agregadas.
       });
               
-              
-   }else{
-      res.write('<h1>Empieza generando alguna consulta de API!</h1>') //si no se  busca api muestra esto.
    }
-
 });
 
 const PORT = process.env.PORT || 3000;

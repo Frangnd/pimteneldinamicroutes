@@ -50,9 +50,8 @@ function Router (){
             }          
           return route;
       }
-    }
+    } 
 }
-
 
 const router = Router();
 
@@ -69,17 +68,15 @@ return {
 }
 }
 
-
 /*
 const routeDispatcher = (req, res, apiRouteName, apiID) => {
-
-  //apiID es para saber si la consulta tiene algun parametro en el tercer slash. ej. /api/product/1. el apiID es 1 
-  //apiRouteName es el nombre de la ruta y que se almacena al momento de ejecutar dicha consulta de API ej. /api/product se guarda "product"
-  if(req.method === 'GET'){
-      
+for each route{
+  if (route == router.service)}
+  response = route.handler();
   }
 }
 */
+
 const routeList = (method) => {
   switch(method){
      default : console.log(router.Routes); break;
@@ -88,9 +85,7 @@ const routeList = (method) => {
      case 'PUT' : console.log(router.Routes.PUT); break;
      case 'DEL' : console.log(router.Routes.DEL); break;
   }
-  
 }
-
 
 module.exports = {
     router,
